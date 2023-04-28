@@ -1,0 +1,403 @@
+[
+    {
+    "description": "Возвращает самые базовые данные о всех тренировках пользователях",
+    "url": "/workout/get_all_workout",
+    "response": {
+        "workout": [
+            {
+                "id": "uuid",
+                "name": "name",
+                "icon": "image_icon",
+                "color": "color"
+            }
+        ]
+    },
+    "request": {
+    }
+},
+
+
+{
+    "description": "Возвращает данные о тренировке по id",
+    "url": "/workout/get_workout",
+    "response": {
+        "id": "id",
+        "name": "name",
+        "color": "color",
+        "icon": "icon",
+        "initial_break": "initial_break",
+        "playlist": "playlist_id",
+        "exercise": ["id"]
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+
+{
+    "description": "Возвращает упражнения по тренировки по id тренировки",
+    "url": "/workout/get_exercise",
+    "response":
+    {
+        "exercise": [
+            {
+                "id": "id",
+                "type": "type",
+                "name": "name",
+                "break_between_approaches": "break_between_approaches",
+                "icon": "icon",
+                "break_after_exercise": "break_after_exercise",
+                "approach": ["id"]
+            }
+        ]
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+
+{
+    "description": "Возвращает подходы по упражнению по id упражнения(поле repetitions вернётся если у упражнения type=repetitions, если type=time, то duration)",
+    "url": "/workout/get_approach",
+    "response": {
+        "approach": [
+            {
+                "id": "id",
+                "break_after_approach": "break_after_approach",
+                "working_weight": "working_weight",
+                "-repetitions": "repetitions",
+                "-duration": "duration"
+            }
+        ]
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+
+{
+    "description": "Обновляет переданные поля тренировки(кроме id)",
+    "url": "/workout/update_workout",
+    "response": {
+        "id": "id",
+        "name": "name",
+        "color": "color",
+        "icon": "icon",
+        "initial_break": "initial_break",
+        "playlist": "playlist_id"
+    },
+    "request": {
+        "id": "id",
+        "-name": "name",
+        "-color": "color",
+        "-icon": "icon",
+        "-initial_break": "initial_break",
+        "-playlist": "playlist_id"
+    }
+},
+
+
+{
+    "description": "Обновляет переданные поля упражнения(кроме id)",
+    "url": "/workout/update_exercise",
+    "response": {
+        "id": "id",
+        "name": "name",
+        "break_between_approaches": "break_between_approaches",
+        "icon": "icon",
+        "type": "type",
+        "break_after_exercise": "break_after_exercise"
+    },
+    "request": {
+        "id": "id",
+        "-name": "name",
+        "-break_between_approaches": "break_between_approaches",
+        "-icon": "icon",
+        "-type": "type",
+        "-break_after_exercise": "break_after_exercise"
+    }
+},
+
+{
+    "description": "Обновляет переданные поля подхода(кроме id; поля repetitions и duration должны передаваться учитывая поле type упражнения)",
+    "url": "/workout/update_approach",
+    "response": {
+        "id": "id",
+        "break_after_approach": "break_after_approach",
+        "working_weight": "working_weight",
+        "-repetitions": "repetitions",
+        "-duration": "duration"
+    },
+    "request": {
+        "id": "id",
+        "-break_after_approach": "break_after_approach",
+        "-working_weight": "working_weight",
+        "-repetitions": "repetitions",
+        "-duration": "duration"
+    }
+},
+
+
+
+{
+    "description": "Удаляет тренировку со всеми связанными объектами",
+    "url": "/workout/delete_workout",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+
+{
+    "description": "Удаляет упражнение со всеми связанными объектами",
+    "url": "/workout/delete_exercise",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+{
+    "description": "Удаляет подход",
+    "url": "/workout/delete_approach",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+
+{
+    "description": "Создаёт тренировку",
+    "url": "/workout/create_workout",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "name": "name",
+        "color": "color",
+        "icon": "icon",
+        "initial_break": "initial_break",
+        "-playlist": "playlist_id"
+    }
+},
+
+
+{
+    "description": "Создаёт упражнение",
+    "url": "/workout/create_exercise",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "workout": "workout_id",
+        "name": "name",
+        "break_between_approaches": "break_between_approaches",
+        "icon": "icon",
+        "type": "type",
+        "break_after_exercise": "break_after_exercise"
+    }
+},
+
+{
+    "description": "Создаёт подход",
+    "url": "/workout/create_approach",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "exercise": "exercise_id",
+        "break_after_approach": "break_after_approach",
+        "working_weight": "working_weight",
+        "-repetitions": "repetitions",
+        "-duration": "duration"
+    }
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "description": "Передаю данные о всех песнях кроме самой песни",
+    "url": "/music/get_all_music",
+    "response": {
+        "music": [
+            {
+                "id": "id",
+                "title": "title",
+                "time": "time",
+                "playlist": "playlist"
+            }
+        ]
+    },
+    "request": {
+    }
+},
+
+{
+    "description": "Возвращает файл с песней",
+    "url": "/music/get_music",
+    "response": {
+        "content": "content"
+    },
+    "request": {
+        "id": "id"
+    }
+},
+
+
+
+{
+    "description": "Обновляет любые данные песни кроме самого содержимого",
+    "url": "/music/update_music",
+    "response": {
+        "id": "id",
+        "title": "title",
+        "time": "time",
+        "playlist": "playlist"
+    },
+    "request": {
+        "id": "id",
+        "-title": "title",
+        "-playlist": "playlist"
+    }
+},
+
+{
+    "description": "Удаляет песню",
+    "url": "/music/delete_music",
+    "response": {
+        "music": ["id"]
+    },
+    "request": {
+        "music": ["id"]
+    }
+},
+
+
+
+{
+    "description": "Создаёт песню",
+    "url": "/music/create_music",
+    "response": {
+        "id": "id"
+    },
+    "request": {
+        "title": "title",
+        "content": "content",
+        "-time": "time",
+        "-playlist": "playlist"
+    }
+},
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "description": "Возвращает все плейлисты",
+    "url": "/music/get_all_playlist",
+    "response": {
+        "playlist": [
+            {
+                "id": "id",
+                "title": "title"
+            }
+        ]
+    },
+    "request": {
+    }
+},
+
+
+{
+    "description": "Создаёт плейлист",
+    "url": "/music/create_playlist",
+    "response": {
+        "id": "id",
+        "title": "title"
+    },
+    "request": {
+        "title": "title"
+    }
+},
+
+
+
+
+{
+    "description": "Удаляет плейлисты",
+    "url": "/music/delete_playlist",
+    "response": {
+        "playlist": ["id"]
+    },
+    "request": {
+        "playlist": ["id"]
+    }
+},
+
+
+{
+    "description": "Добавляет песни в плейлист",
+    "url": "/music/add_music_playlist",
+    "response": {
+        "id": "id",
+        "music": ["music_id"]
+    },
+    "request": {
+        "id": "id",
+        "music": ["music_id"]
+    }
+},
+
+
+{
+    "description": "Удаляет песни из плейлист",
+    "url": "/music/delete_music_playlist",
+    "response": {
+        "id": "id",
+        "music": ["music_id"]
+    },
+    "request": {
+        "id": "id",
+        "music": ["music_id"]
+    }
+}
+]
