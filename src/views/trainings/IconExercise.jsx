@@ -1,28 +1,28 @@
 import React, { useState } from "react"
 
-import styles from './CheckIcon.module.scss'
+import styles from './IconExercise.module.scss'
 
 
-export const CheckIcon = ({ setOpenIcon, iconWorkout, setIconWorkout }) => {
+export const IconExercise = ({ setOpenIcon, IconExercise, setIconExercise }) => {
 
-  const [icon, setIcon] = useState(iconWorkout)
+  const [icon, setIcon] = useState(IconExercise)
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div onClick={() => {
-          setIcon(iconWorkout)
+          setIcon(IconExercise)
           setOpenIcon(false)
         }} className={styles.cancel}>Cancel</div>
         <div onClick={() => {
-          setIconWorkout(icon)
+          setIconExercise(icon)
           setOpenIcon(false)
         }} className={styles.ready}>Ready</div>
       </div>
       <div className={styles.finally_icon}>
         {icon}
       </div>
-      <h3 className={styles.title_page}>Icon workout</h3>
+      <h3 className={styles.title_page}>Icon exercise</h3>
       <div className={styles.diving_line} />
       <div className={styles.icons_container}>
         <div onClick={() => setIcon(
@@ -57,5 +57,5 @@ export const CheckIcon = ({ setOpenIcon, iconWorkout, setIconWorkout }) => {
         </div>
       </div>
     </div>
-  )
+  ) 
 }
