@@ -1,50 +1,42 @@
 import React, { useState } from "react"
 
-import { Exercises_html } from "./Exercises_html.jsx"
+import { Exercises_html } from "./CreateExercises_html.jsx"
 import { IconExercise } from "./IconExercise.jsx"
 import { TypeExercise } from "./TypeExercise.jsx"
 
 
-export const Exercises = ({ setOpenExercises }) => {
+export const CreateExercises = ({ setOpenExercises, setListExercises }) => {
 
   const [openIcon, setOpenIcon] = useState(false)
   const [openType, setOpenType] = useState(false)
 
-  const [idExercise, setIdExercise] = useState(0)
   const [titleExercise, setTitleExercise] = useState()
   const [iconExercise, setIconExercise] = useState(
     <div className="icon-default" />
   )
   const [typeExercise, setTypeExercise] = useState('repeat')
-  const [approachesExercise, setApproachesExercise] = useState([])
+  const [listApproaches, setListApproaches] = useState([])
 
   const createExercise = () => {
-    setIdExercise(prev => prev + 1)
     const newExercise = {
-      id: idExercise,
       title: titleExercise,
       icon: iconExercise,
       type: typeExercise,
-      approaches: approachesExercise
+      listApproaches: listApproaches
     }
-  }
 
-  const [approach, setApproach] = useState({
-    id: 1,
-    count: 1,
-    mainParametr: 10,
-    weight: 25,
-    break: 30
-  })
-
-  const createApproach = () => {
-    const newApproach = {
-      id: approach.id,
-      count: approach.count,
-      mainParametr: approach.mainParametr,
-      weight: approach.weight,
-      break: approach.break
+    const validation = () => {
+      if (newExercise.title === undefined || newExercise.title === '') {
+        alert('Enter the title')
+      } else if (newExercise.listApproaches.length === 0) {
+        alert('Add one approach')
+      } else {
+        setListExercises(prev => [...prev, newExercise])
+        setOpenExercises(false)
+      }
     }
+
+    validation()
   }
 
 
@@ -55,9 +47,9 @@ export const Exercises = ({ setOpenExercises }) => {
       <Exercises_html setOpenIcon={setOpenIcon} setOpenType={setOpenType}
       setTitleExercise={setTitleExercise} titleExercise={titleExercise}
       iconExercise={iconExercise} setIconExercise={setIconExercise}
-      approach={approach} setApproach={setApproach}
-      approachesExercise={approachesExercise} setApproachesExercise={setApproachesExercise}
-      setOpenExercises={setOpenExercises}
+      typeExercise={typeExercise}
+      listApproaches={listApproaches} setListApproaches={setListApproaches}
+      setOpenExercises={setOpenExercises} createExercise={createExercise}
       />
       : openIcon === true ? <IconExercise setOpenIcon={setOpenIcon}
       iconExercise={iconExercise} setIconExercise={setIconExercise}

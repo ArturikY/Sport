@@ -1,0 +1,75 @@
+import React, { useState } from "react"
+
+import styles from './CreateExercises.module.scss'
+import { Approach } from './Approach.jsx'
+
+
+export const Exercises_html = ({ titleExercise, setTitleExercise,
+  setOpenIcon, setOpenType, iconExercise, listApproaches, 
+  setListApproaches, createExercise, setOpenExercises, 
+  typeExercise
+ }) => {
+
+  const [countApp, setCountApp] = useState(1)
+
+  const addApproach = () => {
+    setCountApp(prev => prev + 1)
+    const newApproach = {
+      count: countApp,
+      mainParametr: 10,
+      weight: 25,
+      pause: 30,
+    }
+    setListApproaches(prev => [...prev, newApproach])
+  }
+
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div onClick={() => setOpenExercises(false)} className={styles.cancel}>
+          Cancel
+        </div>
+        <div className={styles.titlePage}>
+          Add exercise
+        </div>
+        <div onClick={() => createExercise()} className={styles.ready}>
+          Ready
+        </div>
+      </div>
+      <div className={styles.titleExercise}>
+        <div onClick={() => setOpenIcon(true)} className={styles.logo}>
+          {iconExercise}
+        </div>
+        <form>
+          <div className={styles.form}>
+            <input type="text" id="inputExercise" placeholder="Title exercise" 
+              onChange={e => setTitleExercise(e.target.value)}
+              value={titleExercise}
+            />
+            <button type="reset">
+              <div className="icon-cancel" />
+            </button>
+          </div>
+        </form>
+      </div>
+      <div onClick={() => setOpenType(true)} className={styles.type}>
+        <div className={styles.title}>Type exercise</div>
+        <div className={styles.text}>
+          <div>On {typeExercise}</div>
+          <div className="icon-next" />
+        </div>
+      </div>
+      <div className={styles.listApproach}>
+        {
+          listApproaches.map((approach, index) => (
+              <Approach key={index+1} approach={approach} countApp={index+1} listApproaches={listApproaches} />
+            )
+          )
+        }
+        <div onClick={addApproach}
+        className={styles.addApproach}>Add approach</div>
+      </div>
+    </div>
+  )
+}

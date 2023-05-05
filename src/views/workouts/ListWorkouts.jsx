@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-import styles from './Workouts.module.scss'
+import styles from './ListWorkouts.module.scss'
 import { Navigation } from '/src/components/display/Navigation.jsx'
 import { useWorkoutsContext } from "../../services/contexts/WorkoutsContext";
+import { Workout } from "./Workout";
 
 
-export const Workouts = ({ setOpenCreate }) => {
+export const ListWorkouts = ({
+  setOpenCreate, setOpenDetail, setDetailWorkout, setWorkout 
+}) => {
 
-  const {listWorkouts} = useWorkoutsContext()
+  const {listWorkouts} = useWorkoutsContext({})
   
   
   return (
@@ -22,16 +25,10 @@ export const Workouts = ({ setOpenCreate }) => {
       <h1>Workouts</h1>
       <div className={styles.listWorkout}>
         {
-          listWorkouts.map((workout) => (
-            <div key={workout.id} className={styles.workout}>
-              <div className={styles.logo}>
-                <div className="icon-default" />
-              </div>
-              <div className={styles.text}>
-                <h3>{workout.title}</h3>
-                <div className={styles.exercise}>Approach: {workout.exercises.length}</div>
-              </div>        
-            </div>
+          listWorkouts.map((workout, index) => (
+            <Workout key={index} workout={workout} setOpenDetail={setOpenDetail}
+            setDetailWorkout={setDetailWorkout} setWorkout={setWorkout}
+            />
           ))
         }
       </div>

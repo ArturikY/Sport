@@ -1,37 +1,50 @@
 import React, { useState } from "react"
 
 import { useWorkoutsContext } from "../../services/contexts/WorkoutsContext"
-import { CheckIcon } from "./CheckIcon"
-import { Exercises } from "./Exercises"
+import { IconWorkout } from "./IconWorkout"
+import { CreateExercises } from "./CreateExercises"
 import { Create_html } from './Create_html'
 
 
-export const Create = ({ setOpenCreate }) => {
+export const Create = ({ setOpenCreate, workout, setWorkout }) => {
 
   const {toggle} = useWorkoutsContext()
 
   const [openIcon, setOpenIcon] = useState(false)
   const [openExercises, setOpenExercises] = useState(false)
 
-  const [idWorkout, setIdWorkout] = useState(1)
   const [titleWorkout, setTitleWorkout] = useState()
   const [iconWorkout, setIconWorkout] = useState(
     <div className="icon-default" />
   )
   const [colorWorkout, setColorWorkout] = useState('rgb(38, 70, 83)')
-  const [exercisesWorkout, setExercisesWorkout] = useState([])
+  const [listExercises, setListExercises] = useState([])
 
   const createWorkout = (e) => {
     e.preventDefault()
-    setIdWorkout(prev => prev + 1)
     const newWorkout = {
-      id: idWorkout,
       title: titleWorkout,
       icon: iconWorkout,
       color: colorWorkout,
-      exercises: exercisesWorkout
+      listExercises: listExercises
     }
-    toggle(newWorkout)
+
+    const validation = () => {
+      if (newWorkout.title === undefined || newWorkout.title === '') {
+        alert('Enter the title')
+      } else if (newWorkout.listExercises.length === 0) {
+        alert('Add one exercise')
+      } else {
+        setWorkout({...newWorkout})
+        console.log(newWorkout);
+        toggle(workout)
+        setOpenCreate(false)
+        console.log(workout);
+      }
+    }
+
+    validation()
+    
   }
 
 
@@ -44,13 +57,15 @@ export const Create = ({ setOpenCreate }) => {
       titleWorkout={titleWorkout} setTitleWorkout={setTitleWorkout}
       iconWorkout={iconWorkout} setIconWorkout={setIconWorkout}
       colorWorkout={colorWorkout} setColorWorkout={setColorWorkout}
-      createWorkout={createWorkout} exercisesWorkout={exercisesWorkout}
-      setExercisesWorkout={setExercisesWorkout}
+      createWorkout={createWorkout} listExercises={listExercises}
+      setListExercises={setListExercises}
       />
-      : openIcon === true ? <CheckIcon setOpenIcon={setOpenIcon} 
+      : openIcon === true ? <IconWorkout setOpenIcon={setOpenIcon} 
       iconWorkout={iconWorkout} setIconWorkout={setIconWorkout} 
       />
-      : openExercises === true ? <Exercises setOpenExercises={setOpenExercises} />
+      : openExercises === true ? <CreateExercises setOpenExercises={setOpenExercises}
+      setListExercises={setListExercises}
+      />
       : null
     }
     </>

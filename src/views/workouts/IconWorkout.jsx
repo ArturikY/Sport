@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
-import styles from './CheckIcon.module.scss'
+import styles from './IconWorkout.module.scss'
 
 
-export const CheckIcon = ({ setOpenIcon, iconWorkout, setIconWorkout }) => {
+export const IconWorkout = ({ setOpenIcon, iconWorkout, setIconWorkout }) => {
 
   const [icon, setIcon] = useState(iconWorkout)
 

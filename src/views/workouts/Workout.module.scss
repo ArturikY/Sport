@@ -1,0 +1,39 @@
+.workout {
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #e9dcdc;
+  border-bottom: 1px solid #e9dcdc;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    margin-left: 15px;
+    color: orange;
+    background-color: white;
+
+    div {
+      font-size: 39px;
+    }
+  }
+}
+
+.text {
+  margin-left: 10px;
+  height: 45px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .exercise {
+    font-size: 14px;
+    font-weight: 400;
+    color: gray;
+  }
+}
+
+.icons {
+  margin-left: auto;
+  margin-right: 15px;
+}

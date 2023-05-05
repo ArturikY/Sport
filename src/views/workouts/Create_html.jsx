@@ -1,11 +1,12 @@
 import React from "react"
 
 import styles from './Create.module.scss'
+import { Exercise } from "./Exercise";
 
 
 export const Create_html = ({ setOpenCreate, setOpenIcon, setOpenExercises,
   titleWorkout, setTitleWorkout, iconWorkout, setIconWorkout, colorWorkout,
-  setColorWorkout, createWorkout, exercisesWorkout, setExercisesWorkout
+  setColorWorkout, createWorkout, listExercises, setListExercises
   }) => {
 
 
@@ -53,32 +54,17 @@ export const Create_html = ({ setOpenCreate, setOpenIcon, setOpenExercises,
       </div>
       </div>
       <div className={styles.listExerxises}>
-        <div className={styles.exercise}>
-          <div className={styles.logo}>
-            <div className="icon-default" />
-          </div>
-          <div className={styles.text}>
-            <h3>Press</h3>
-            <div className={styles.approach}>Approach: 1</div>
-          </div>
-          <div className={styles.icons}>
-            <div className={styles.more}>
-              <div className="icon-next" />
-            </div>
-            <div className={styles.delete}>
-              <div className="icon-delete" />
-            </div>
-          </div>      
-        </div>
-        {/* <div className={styles.preview}>Add a first exercise</div> */}
+        {
+          listExercises.map((exercise, index) => (
+            <Exercise key={index} exercise={exercise} />
+          ))
+        }
       </div>
       <div className={styles.btn_container}>
-        <button onClick={e => {
-          createWorkout(e)
-          setOpenCreate(false)
-        }
+        <button onClick={e => createWorkout(e)
         } className={styles.btn_create}>Create workout</button>
       </div>
+      {/* <div className={styles.preview}>Add a first exercise</div> */}
     </div>
   )
 }

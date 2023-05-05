@@ -1,21 +1,37 @@
 import React, { useState } from "react"
 
-import { Workouts } from "./trainings/Workouts"
+import { ListWorkouts } from "./workouts/ListWorkouts"
 import { WorkoutsProvider } from "../services/contexts/WorkoutsContext"
-import { Create } from "./trainings/Create"
+import { Create } from "./workouts/Create"
+import { DetailWorkout } from "./workouts/DetailWorkout"
 
 
 export const App = () => {
 
-  const [openCreate, setOpenCreate] = useState(false)
+  const [workout, setWorkout] = useState({})
 
+  const [openCreate, setOpenCreate] = useState(false)
+  const [openDetail, setOpenDetail] = useState(false)
+
+  const [detailWorkout, setDetailWorkout] = useState()
   
   return (
     <>
     <div className="container">
       <WorkoutsProvider>
-        {openCreate ? <Create setOpenCreate={setOpenCreate} /> 
-        : <Workouts setOpenCreate={setOpenCreate} />}
+        {
+          !openCreate && !openDetail ? 
+          <ListWorkouts setOpenCreate={setOpenCreate} setOpenDetail={setOpenDetail} 
+          setDetailWorkout={setDetailWorkout} setWorkout={setWorkout}
+          />
+          : openCreate ? <Create
+          setOpenCreate={setOpenCreate} workout={workout} setWorkout={setWorkout}
+          /> 
+          : openDetail ? <DetailWorkout detailWorkout={detailWorkout} 
+          setOpenDetail={setOpenDetail} setDetailWorkout={setDetailWorkout}
+          />
+          : null
+        }
       </WorkoutsProvider>
     </div>
     <h1 className="limition">Please, change device</h1>
