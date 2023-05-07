@@ -1,7 +1,7 @@
 import React from "react"
 
 import styles from "./EditWorkout.module.scss"
-import { Exercise } from "../Exercise"
+import { Exercise } from "../createWorkouts/Exercise"
 
 
 export const EditWorkout_html = ({ setOpenEdit, setOpenIcon, setOpenExercises,

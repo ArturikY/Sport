@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styles from './ListWorkouts.module.scss'
 import { Navigation } from '/src/components/display/Navigation.jsx'
-import { useWorkoutsContext } from "../../services/contexts/WorkoutsContext";
+import { useWorkoutsContext } from "../../../services/contexts/WorkoutsContext";
 import { Workout } from "./Workout";
 
 

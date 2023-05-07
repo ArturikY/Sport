@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
 import { EditWorkout_html } from "./EditWorkout_html"
-import { IconWorkout } from "../IconWorkout"
-import { CreateExercises } from "../CreateExercises"
+import { IconWorkout } from "../createWorkouts/IconWorkout"
+import { CreateExercises } from "../createExercise/CreateExercises"
 
 
 export const EditWorkout = ({ workout, setOpenEdit, setWorkout }) => {

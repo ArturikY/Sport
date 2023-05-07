@@ -7,7 +7,7 @@ export const Workout = ({
   workout, setOpenDetail, setDetailWorkout, setWorkout
 }) => {
 
-  // setWorkout(workout)
+  setWorkout(workout)
 
   return (
     <div onClick={() => {

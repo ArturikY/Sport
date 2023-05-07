@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
-import { useWorkoutsContext } from "../../services/contexts/WorkoutsContext"
+import { useWorkoutsContext } from "../../../services/contexts/WorkoutsContext"
 import { IconWorkout } from "./IconWorkout"
-import { CreateExercises } from "./CreateExercises"
+import { CreateExercises } from "../createExercise/CreateExercises"
 import { Create_html } from './Create_html'
 
 
@@ -35,11 +35,8 @@ export const Create = ({ setOpenCreate, workout, setWorkout }) => {
       } else if (newWorkout.listExercises.length === 0) {
         alert('Add one exercise')
       } else {
-        setWorkout({...newWorkout})
-        console.log(newWorkout);
-        toggle(workout)
+        toggle(newWorkout)
         setOpenCreate(false)
-        console.log(workout);
       }
     }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 import styles from './DetailWorkout.module.scss'
-import { EditWorkout } from "./edit/EditWorkout"
+import { EditWorkout } from "../edit/EditWorkout"
 
 
 export const DetailWorkout = ({ detailWorkout, setOpenDetail, setDetailWorkout }) => {

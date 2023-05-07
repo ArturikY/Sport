@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
-import { ListWorkouts } from "./workouts/ListWorkouts"
+import { ListWorkouts } from './workouts/listWorkouts/ListWorkouts'
 import { WorkoutsProvider } from "../services/contexts/WorkoutsContext"
-import { Create } from "./workouts/Create"
-import { DetailWorkout } from "./workouts/DetailWorkout"
+import { Create } from "./workouts/createWorkouts/Create"
+import { DetailWorkout } from "./workouts/detail/DetailWorkout"
 
 
 export const App = () => {
