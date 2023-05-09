@@ -17,6 +17,12 @@
   }
 }
 
+.body {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
 .text {
   margin-left: 10px;
   height: 45px;
@@ -36,4 +42,11 @@
 .icons {
   margin-left: auto;
   margin-right: 15px;
+
+  .delete {
+    
+    div {
+      font-size: 25px;
+    }
+  }
 }

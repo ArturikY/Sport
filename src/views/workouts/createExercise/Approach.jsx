@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 import styles from "./Approach.module.scss"
+import { deleteEl } from "../../../services/deleteEl"
 
 
 export const Approach = ({ approach, countApp }) => {
@@ -40,9 +41,6 @@ export const Approach = ({ approach, countApp }) => {
     <div className={styles.approach}>
       <div className={styles.headApproach}>
         <h3>Approach {countApp}</h3>
-        <div className={styles.delete}>
-          <div className="icon-delete" />
-        </div>
       </div>
       <div className={styles.bodyApproach}>
         <div className={styles.parameter}>

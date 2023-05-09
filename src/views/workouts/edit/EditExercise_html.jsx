@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 
-import styles from './CreateExercises.module.scss'
-import { Approach } from './Approach.jsx'
+import styles from './EditExerice.module.scss'
+import { Approach } from "../createExercise/Approach" 
+import { deleteEl } from "../../../services/deleteEl"
 
 
-export const Exercises_html = ({ titleExercise, setTitleExercise,
+export const EditExercises_html = ({ titleExercise, setTitleExercise,
   setOpenIcon, setOpenType, iconExercise, listApproaches, 
-  setListApproaches, createExercise, setOpenExercises, 
-  typeExercise
+  setListApproaches, createExercise, setOpenEditExercise, 
+  typeExercise, detailExercise, listExercises
  }) => {
 
   const [countApp, setCountApp] = useState(1)
@@ -27,11 +28,15 @@ export const Exercises_html = ({ titleExercise, setTitleExercise,
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div onClick={() => setOpenExercises(false)} className={styles.cancel}>
+        <div onClick={() => setOpenEditExercise(false)} className={styles.cancel}>
           Cancel
         </div>
-        <div className={styles.titlePage}>
-          Add exericise
+        <div onClick={() => {
+          deleteEl(listExercises, detailExercise)
+          setOpenEditExercise(false)
+        }} 
+          className={styles.delete}>
+          Delete
         </div>
         <div onClick={() => createExercise()} className={styles.ready}>
           Ready
@@ -63,7 +68,7 @@ export const Exercises_html = ({ titleExercise, setTitleExercise,
       <div className={styles.listApproach}>
         {
           listApproaches.map((approach, index) => (
-              <Approach key={index+1} approach={approach} countApp={index+1} />
+              <Approach key={index+1} approach={approach} countApp={index+1} listApproaches={listApproaches} />
             )
           )
         }

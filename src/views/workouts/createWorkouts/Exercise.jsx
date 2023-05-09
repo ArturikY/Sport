@@ -3,11 +3,14 @@ import React from "react"
 import styles from "./Exercise.module.scss"
 
 
-export const Exercise = ({ exercise }) => {
+export const Exercise = ({ exercise, setOpenEditExercise, setDetailExercise }) => {
 
 
   return (
-    <div className={styles.exercise}>
+    <div onClick={() => {
+      setOpenEditExercise(true)
+      setDetailExercise(exercise)
+    }} className={styles.exercise}>
       <div className={styles.logo}>
         {exercise.icon}
       </div>
@@ -18,9 +21,6 @@ export const Exercise = ({ exercise }) => {
       <div className={styles.icons}>
         <div className={styles.more}>
           <div className="icon-next" />
-        </div>
-        <div className={styles.delete}>
-          <div className="icon-delete" />
         </div>
       </div>      
     </div>

@@ -4,9 +4,12 @@ import { useWorkoutsContext } from "../../../services/contexts/WorkoutsContext"
 import { IconWorkout } from "./IconWorkout"
 import { CreateExercises } from "../createExercise/CreateExercises"
 import { Create_html } from './Create_html'
+import { EditExercise } from "../edit/EditExercise"
 
 
-export const Create = ({ setOpenCreate, workout, setWorkout }) => {
+export const Create = ({ 
+  setOpenCreate, openEditExercise, setOpenEditExercise, detailExercise, setDetailExercise
+}) => {
 
   const {toggle} = useWorkoutsContext()
 
@@ -44,24 +47,28 @@ export const Create = ({ setOpenCreate, workout, setWorkout }) => {
     
   }
 
-
   return (
     <>
     {
-      !openIcon === true && !openExercises === true ? 
+      !openIcon && !openExercises && !openEditExercise ?
       <Create_html setOpenCreate={setOpenCreate} setOpenIcon={setOpenIcon}
       setOpenExercises={setOpenExercises} 
       titleWorkout={titleWorkout} setTitleWorkout={setTitleWorkout}
       iconWorkout={iconWorkout} setIconWorkout={setIconWorkout}
       colorWorkout={colorWorkout} setColorWorkout={setColorWorkout}
       createWorkout={createWorkout} listExercises={listExercises}
-      setListExercises={setListExercises}
+      setListExercises={setListExercises} setOpenEditExercise={setOpenEditExercise}
+      setDetailExercise={setDetailExercise}
       />
-      : openIcon === true ? <IconWorkout setOpenIcon={setOpenIcon} 
+      : openIcon ? <IconWorkout setOpenIcon={setOpenIcon} 
       iconWorkout={iconWorkout} setIconWorkout={setIconWorkout} 
       />
-      : openExercises === true ? <CreateExercises setOpenExercises={setOpenExercises}
+      : openExercises ? <CreateExercises setOpenExercises={setOpenExercises}
       setListExercises={setListExercises}
+      />
+      : openEditExercise ? <EditExercise detailExercise={detailExercise} 
+      setListExercises={setListExercises} setOpenEditExercise={setOpenEditExercise}
+      listExercises={listExercises}
       />
       : null
     }

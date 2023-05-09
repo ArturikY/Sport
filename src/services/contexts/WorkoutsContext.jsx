@@ -19,6 +19,7 @@ export const WorkoutsProvider = ({ children }) => {
   return (
     <WorkoutsContext.Provider value={{
       listWorkouts: listWorkouts,
+      setListWorkouts: setListWorkouts,
       toggle: toggle
       }}>
       { children }

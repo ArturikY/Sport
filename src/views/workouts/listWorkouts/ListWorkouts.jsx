@@ -7,7 +7,7 @@ import { Workout } from "./Workout";
 
 
 export const ListWorkouts = ({
-  setOpenCreate, setOpenDetail, setDetailWorkout, setWorkout 
+  setOpenCreate, setOpenDetail, setDetailWorkout 
 }) => {
 
   const {listWorkouts} = useWorkoutsContext({})
@@ -27,7 +27,7 @@ export const ListWorkouts = ({
         {
           listWorkouts.map((workout, index) => (
             <Workout key={index} workout={workout} setOpenDetail={setOpenDetail}
-            setDetailWorkout={setDetailWorkout} setWorkout={setWorkout}
+            setDetailWorkout={setDetailWorkout}
             />
           ))
         }

@@ -2,16 +2,26 @@ import React, { useState } from "react"
 
 import styles from './DetailWorkout.module.scss'
 import { EditWorkout } from "../edit/EditWorkout"
+import { useWorkoutsContext } from "../../../services/contexts/WorkoutsContext"
+import { deleteEl } from "../../../services/deleteEl"
+import { Go } from "../go/Go"
 
 
-export const DetailWorkout = ({ detailWorkout, setOpenDetail, setDetailWorkout }) => {
+export const DetailWorkout = ({ 
+  detailWorkout, setOpenDetail, setDetailWorkout, openEditExercise, setOpenEditExercise, 
+  detailExercise, setDetailExercise
+}) => {
 
   const [openEdit, setOpenEdit] = useState(false)
+  const [openGo, setOpenGo] = useState(false)
+ 
+  const {listWorkouts} = useWorkoutsContext()
+
 
   return (
     <>
     {
-      !openEdit ? 
+      !openEdit && !openGo ? 
       <div className={styles.container}>
         <div className={styles.header}>
           <div onClick={() => setOpenDetail(false)} className="icon-prev" />
@@ -20,9 +30,16 @@ export const DetailWorkout = ({ detailWorkout, setOpenDetail, setDetailWorkout }
             <div className="icon-1" />
           </div>
         </div>
-        <h1 className={styles.titleWorkout}>{detailWorkout.title}</h1>
+        <div className={styles.head}>
+          <h2 className={styles.titleWorkout}>{detailWorkout.title}</h2>
+          <h2 onClick={() => {
+            deleteEl(listWorkouts, detailWorkout)
+            setOpenDetail(false)
+          }}>Delete</h2>
+        </div>
         <div className={styles.startWorkout}>
-          <button className={styles.btnStart}>Go</button>
+          <button onClick={() => setOpenGo(true)} 
+          className={styles.btnStart}>Go</button>
         </div>
         <div className={styles.contentWorkout}>
           {
@@ -70,9 +87,13 @@ export const DetailWorkout = ({ detailWorkout, setOpenDetail, setDetailWorkout }
           }
         </div>
       </div>
-      : <EditWorkout workout={detailWorkout} setWorkout={setDetailWorkout}
-      setOpenEdit={setOpenEdit}
+      : openEdit ? <EditWorkout detailWorkout={detailWorkout} setOpenEdit={setOpenEdit} 
+      setDetailWorkout={setDetailWorkout} openEditExercise={openEditExercise}
+      setOpenEditExercise={setOpenEditExercise} detailExercise={detailExercise}
+      setDetailExercise={setDetailExercise}
       />
+      : openGo ? <Go />
+      : null
     }
     </>
   )

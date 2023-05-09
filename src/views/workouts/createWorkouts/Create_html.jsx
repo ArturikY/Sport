@@ -6,7 +6,8 @@ import { Exercise } from "./Exercise";
 
 export const Create_html = ({ setOpenCreate, setOpenIcon, setOpenExercises,
   titleWorkout, setTitleWorkout, iconWorkout, setIconWorkout, colorWorkout,
-  setColorWorkout, createWorkout, listExercises, setListExercises
+  setColorWorkout, createWorkout, listExercises, setListExercises,
+  setOpenEditExercise, setDetailExercise
   }) => {
 
 
@@ -55,8 +56,10 @@ export const Create_html = ({ setOpenCreate, setOpenIcon, setOpenExercises,
       </div>
       <div className={styles.listExerxises}>
         {
-          listExercises.map((exercise, index) => (
-            <Exercise key={index} exercise={exercise} />
+          listExercises.map((exercise, index, listExercises) => (
+            <Exercise key={index} exercise={exercise} setOpenEditExercise={setOpenEditExercise} 
+            setDetailExercise={setDetailExercise}  listExercises={listExercises}
+            />
           ))
         }
       </div>
