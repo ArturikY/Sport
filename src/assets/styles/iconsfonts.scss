@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('/public/iconsfont/icomoon.eot?84l8gf');
-  src:  url('/public/iconsfont/icomoon.eot?84l8gf#iefix') format('embedded-opentype'),
-    url('/public/iconsfont/icomoon.ttf?84l8gf') format('truetype'),
-    url('/public/iconsfont/icomoon.woff?84l8gf') format('woff'),
-    url('/public/iconsfont/icomoon.svg?84l8gf#icomoon') format('svg');
+  font-family: 'icons';
+  src:  url('/public/iconsfonts/icons.eot?sk3gge');
+  src:  url('/public/iconsfonts/icons.eot?sk3gge#iefix') format('embedded-opentype'),
+    url('/public/iconsfonts/icons.ttf?sk3gge') format('truetype'),
+    url('/public/iconsfonts/icons.woff?sk3gge') format('woff'),
+    url('/public/iconsfonts/icons.svg?sk3gge#icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -12,7 +12,7 @@
 
 [class^="icon-"]::before, [class*=" icon-"]::before {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: 'icons' !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -48,15 +48,27 @@
 .icon-cancel:before {
   content: "\e907";
 }
-.icon-default:before {
+.icon-complete:before {
   content: "\e908";
 }
-.icon-delete:before {
+.icon-default:before {
   content: "\e909";
 }
-.icon-next:before {
+.icon-delete:before {
   content: "\e90a";
 }
-.icon-prev:before {
+.icon-next:before {
   content: "\e90b";
+}
+.icon-pause:before {
+  content: "\e90c";
+}
+.icon-play:before {
+  content: "\e90d";
+}
+.icon-prev:before {
+  content: "\e90e";
+}
+.icon-skip:before {
+  content: "\e90f";
 }

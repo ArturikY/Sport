@@ -92,7 +92,7 @@ export const DetailWorkout = ({
       setOpenEditExercise={setOpenEditExercise} detailExercise={detailExercise}
       setDetailExercise={setDetailExercise}
       />
-      : openGo ? <Go />
+      : openGo ? <Go workout={detailWorkout} setOpenGo={setOpenGo} />
       : null
     }
     </>

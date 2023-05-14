@@ -12,7 +12,6 @@ export const Router = () => {
   return <BrowserRouter>
     <Routes>
       <Route element={<App />} path='/' />
-      <Route element={<ListWorkouts />} path='/' />
       <Route element={<Calendar />} path='/calendar' />
       <Route element={<Music />} path='/music' />
       <Route element={<Options />} path='/options' />

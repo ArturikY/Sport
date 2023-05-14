@@ -23,8 +23,8 @@ export const Create_html = ({ setOpenCreate, setOpenIcon, setOpenExercises,
         <div onClick={() => setOpenIcon(true)} className={styles.logo}>
           {iconWorkout}
         </div>
-        <form>
-          <div className={styles.form}>
+        <form className={styles.form}>
+          <div className={styles.formBody}>
             <input type="text" id="inputWorkout" placeholder="Title workout" 
               onChange={e => setTitleWorkout(e.target.value)}
               value={titleWorkout}            

@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titlePage {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+
+  .nav {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
