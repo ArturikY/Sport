@@ -2,27 +2,3 @@
 @import url('./iconsfonts.scss');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
 
-body {
-  font-family: 'Roboto Mono', monospace;
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.limition {
-  display: block;
-}
-
-@media (min-width: 426px) {
-  .container {
-    display: none;
-  }
-}
-
-@media (max-width: 425px) {
-  .limition {
-    display: none;
-  }
-}

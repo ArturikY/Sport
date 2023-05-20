@@ -10,18 +10,22 @@ export const CreateExercises = ({ setOpenExercises, setListExercises }) => {
   const [openIcon, setOpenIcon] = useState(false)
   const [openType, setOpenType] = useState(false)
 
-  const [titleExercise, setTitleExercise] = useState()
+  const [idExercise, setIdExercise] = useState(undefined)
+  const [titleExercise, setTitleExercise] = useState('')
   const [iconExercise, setIconExercise] = useState(
     <div className="icon-default" />
   )
   const [typeExercise, setTypeExercise] = useState('repeat')
+  const [pauseExercise, setPauseExercise] = useState(30)
   const [listApproaches, setListApproaches] = useState([])
 
   const createExercise = () => {
     const newExercise = {
+      id: idExercise,
       title: titleExercise,
       icon: iconExercise,
       type: typeExercise,
+      pause: pauseExercise,
       listApproaches: listApproaches
     }
 
@@ -50,6 +54,7 @@ export const CreateExercises = ({ setOpenExercises, setListExercises }) => {
       typeExercise={typeExercise}
       listApproaches={listApproaches} setListApproaches={setListApproaches}
       setOpenExercises={setOpenExercises} createExercise={createExercise}
+      pauseExercise={pauseExercise} setPauseExercise={setPauseExercise}
       />
       : openIcon === true ? <IconExercise setOpenIcon={setOpenIcon}
       iconExercise={iconExercise} setIconExercise={setIconExercise}

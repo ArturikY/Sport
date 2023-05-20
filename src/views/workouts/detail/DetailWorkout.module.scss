@@ -7,9 +7,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // position: fixed;
+  margin-bottom: 20px;
 
-  div {
+  .icon {
     margin: 5px 0 10px 10px;
     font-size: 20px;
   }
@@ -19,37 +19,62 @@
   display: flex;
   align-self: center;
   color: orange;
+  padding-right: 10px;
 
   h3 {
-    font-size: 20px;
-    padding-top: 3px;
+    font-size: 18px;
+    padding-top: 8px;
   }
 
-  div {
-    font-size: 20px;
+  .icon {
+    font-size: 18px;
+    padding-top: 2px;
   }
 }
 
 .head {
   display: flex;
   justify-content: space-between;
+  padding: 0 10px;
+
+  .icon {
+    font-size: 25px;
+    color: #ed3434;
+  }
 }
 
 .startWorkout {
-  padding: 15px 0;
-  background-color: rgb(32, 31, 31);
+  height: 70px;
+  background: linear-gradient(to right,#1f1d1d, #142134);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconWorkout {
+  width: 60px;
+  height: 45px;
+  background: linear-gradient(to right,#1f1d1d, #373839);
+  border-radius: 0px 15px 15px 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  div {
+    font-size: 30px;
+    color: #e9dcdc;
+  }
 }
 
 .btnStart {
   width: 80px;
-  height: 30px;
-  background-color: rgb(244, 179, 58);
+  height: 35px;
+  background: linear-gradient(to top, #ebbd02, #eede2a);
   font-size: 18px;
   font-weight: 900;
   border: none;
   border-radius: 20px;
+  margin-right: 20px;
 }
 
 .contentWorkout {

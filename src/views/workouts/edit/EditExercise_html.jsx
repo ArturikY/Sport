@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 import styles from './EditExerice.module.scss'
 import { Approach } from "../createExercise/Approach" 
-import { deleteEl } from "../../../services/deleteEl"
+import { deleteEl } from "../../../services/js/deleteEl"
 
 
 export const EditExercises_html = ({ titleExercise, setTitleExercise,

@@ -14,13 +14,15 @@ export const WorkoutsProvider = ({ children }) => {
 
   const [listWorkouts, setListWorkouts] = useState(ListWorkoutsData)
 
+  const [token, setToken] = useState(undefined)
+
   const toggle = (newWorkout) => setListWorkouts(prev => [newWorkout, ...prev])
 
   return (
     <WorkoutsContext.Provider value={{
       listWorkouts: listWorkouts,
       setListWorkouts: setListWorkouts,
-      toggle: toggle
+      toggle: toggle,
       }}>
       { children }
     </WorkoutsContext.Provider>

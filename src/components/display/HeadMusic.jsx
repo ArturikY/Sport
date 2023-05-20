@@ -8,7 +8,9 @@ export const HeadMusic = ({ setOpenAdd, setOpenLibrary }) => {
   
   return (
     <div className={styles.header}>
-      <div className={styles.titlePage}>Music</div>
+      <div className={styles.titlePage}>
+        Music
+      </div>
       <div className={styles.navLinks}>
         <div onClick={() => {
           setOpenAdd(true)

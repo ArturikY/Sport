@@ -1,19 +1,31 @@
 import React from 'react'
 
 import styles from './Songs.module.scss'
-import { deleteEl } from '../../services/deleteEl'
+import { deleteEl } from '../../services/js/deleteEl'
+import { MusicService } from '../../services/axios/music.service'
 
 
 export const Songs = ({ 
   setOpenSongs, listMusic, listPlaylists 
 }) => {
   
+  const deleteData = async (song) => {
+    const data = await MusicService.delete({
+      id: [song.id]
+    })
+  }
+
+  const editData = async (song) => {
+    const data = await MusicService.edit({
+      title: song.title,
+      playlist: song.playlist
+    })
+  }
   
   return (
     <div className={styles.container}>
       <div onClick={() => setOpenSongs(false)}
       className={`icon-prev ${styles.prev}`} />
-      <h2 className={styles.titlePage}>Songs</h2>
       <div className={styles.listSongs}>
         {
           listMusic.map((music, index) => (
@@ -32,6 +44,7 @@ export const Songs = ({
                     playlist.listMusic.push(music)
                   }
                 }
+                editData(music)
               }} name="playlists" id="addToPlaylists">
                 <option value={'None'}>None</option>
                 {
@@ -42,6 +55,7 @@ export const Songs = ({
               </select>
               <div onClick={() => {
                 deleteEl(listMusic, music)
+                deleteData(music)
                 for (let playlist of listPlaylists) {
                   if (playlist.listMusic.includes(music)) {
                     deleteEl(playlist.listMusic, music)

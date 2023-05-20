@@ -41,6 +41,8 @@
 .infoExercise {
   padding: 5px 15px;
   border-bottom: 1px solid #e9dcdc;
+  display: flex;
+  justify-content: space-between;
 
   .countApproach {
     font-size: 14px;

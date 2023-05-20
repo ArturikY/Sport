@@ -11,9 +11,9 @@ export const NavLibrary = ({ setOpenSongs, setOpenPlaylists }) => {
       <h2 className={styles.titlePage}>Library</h2>
       <div className={styles.navLinks}>
         <div onClick={() => setOpenSongs(true)}
-        className={styles.nav}>Songs</div>
+        className={styles.navSongs}>Songs</div>
         <div onClick={() => setOpenPlaylists(true)}
-        className={styles.nav}>Playlists</div>
+        className={styles.navPlaylists}>Playlists</div>
       </div>
     </div>
   )

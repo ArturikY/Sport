@@ -1,39 +1,31 @@
 import React, { useState } from "react"
 
 import styles from "./Approach.module.scss"
-import { deleteEl } from "../../../services/deleteEl"
 
 
-export const Approach = ({ approach, countApp }) => {
+export const Approach = ({ approach, countApp, typeExercise }) => {
 
 
   const [mainParametr, setMainParametr] = useState(approach.mainParametr)
   const [weight, setWeight] = useState(approach.weight)
-  const [pause, setPause] = useState(approach.pause)
 
   const increment = (parameter) => {
     if (parameter === 'mainParametr') {
       setMainParametr(prev => prev + 5)
-      approach.mainParametr = mainParametr
+      approach.mainParametr = mainParametr + 5
     } else if (parameter === 'weight') {
       setWeight(prev => prev + 5)
-      approach.weight = weight
-    } else if (parameter === 'pause') {
-      setPause(prev => prev + 5)
-      approach.pause = pause
+      approach.weight = weight + 5
     }
   }
 
   const decrement = (parameter) => {
-    if (parameter === 'mainParametr') {
+    if (parameter === 'mainParametr' && mainParametr > 0) {
       setMainParametr(prev => prev - 5)
-      approach.mainParametr = mainParametr
-    } else if (parameter === 'weight') {
+      approach.mainParametr = mainParametr - 5
+    } else if (parameter === 'weight' && weight > 0) {
       setWeight(prev => prev - 5)
-      approach.weight = weight
-    } else if (parameter === 'pause') {
-      setPause(prev => prev - 5)
-      approach.pause = pause
+      approach.weight = weight - 5
     }
   }
 
@@ -46,7 +38,11 @@ export const Approach = ({ approach, countApp }) => {
         <div className={styles.parameter}>
           <div className={styles.title}>
             <div className="icon-1" />
-            <div className={styles.text}>Repeats</div>
+            <div className={styles.text}>
+              {
+                typeExercise === 'repeat' ? 'Repeats' : 'Time'
+              }
+            </div>
           </div>
           <div className={styles.tuning}>
             <div onClick={() => decrement("mainParametr")} className={styles.minus}>-</div>
@@ -63,17 +59,6 @@ export const Approach = ({ approach, countApp }) => {
             <div onClick={() => decrement("weight")} className={styles.minus}>-</div>
             <div className={styles.count}>{weight}</div>
             <div onClick={() => increment("weight")} className={styles.plus}>+</div>
-          </div>
-        </div>
-        <div className={styles.parameter}>
-          <div className={styles.title}>
-            <div className="icon-3" />
-            <div className={styles.text}>Pause</div>
-          </div>
-          <div className={styles.tuning}>
-            <div onClick={() => decrement("pause")} className={styles.minus}>-</div>
-            <div className={styles.count}>{pause}</div>
-            <div onClick={() => increment("pause")} className={styles.plus}>+</div>
           </div>
         </div>
       </div>

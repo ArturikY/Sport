@@ -17,7 +17,7 @@ export const App = () => {
   
   return (
     <>
-    <div className="container">
+    <div className="myContainer">
       <WorkoutsProvider>
         {
           !openCreate && !openDetail ? 

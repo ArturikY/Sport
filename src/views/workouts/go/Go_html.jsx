@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styles from './Go.module.scss'
 
 
-export const Go_html = ({
-  workout, setOpenGo, progress, titleExercise, countApp,
-  weight, mainParameter, pause, nextExercise, time, repeats,
-  toggleComplete, toggleSkip, event, togglePause
-}) => {
+export const Go_html = ({ workout, setOpenGo }) => {
+
   
-  const value = 10
-  
-  const r = () => {
-    return value--
-  }
+  const [ seconds, setSeconds ] = useState(60);
+  const [ timerActive, setTimerActive ] = useState(true);
+
+  useEffect(() => {
+    if (seconds > 0 && timerActive) {
+      setTimeout(setSeconds, 1000, seconds - 1);
+    } else {
+      setTimerActive(false);
+    }
+  }, [ seconds, timerActive ]);
+
 
   return (
     <div className={styles.container}>
@@ -30,21 +33,20 @@ export const Go_html = ({
         </div>
       </div>
       <div className={styles.infoExercise}>
-        <h4 className={styles.titleExercise}>{titleExercise}</h4>
-        <div className={styles.countApproach}>
-          Approach {countApp}/{workout.listExercises[0].listApproaches.length}
+        <div>
+          <h4 className={styles.titleExercise}>{titleExercise}</h4>
+          <div className={styles.countApproach}>
+            Approach {countApp}/{workout.listExercises[0].listApproaches.length}
+          </div>  
         </div>
       </div>
       <div className={styles.timerContainer}>
         <div className={styles.data}>
           <div className={styles.time}>
-            {
-
-              r()
-            }
+            {seconds}
           </div>
           <div id="time" className={styles.info}>Time</div>
-          <div className="icon-pause" />
+          <div className='icon-pause' />
         </div>
       </div>
       <div className={styles.navButtons}>
@@ -105,6 +107,9 @@ export const Go_html = ({
             <div className={styles.content}>Next exercise</div>
           </div>
           <div className={styles.info}>{nextExercise}</div>
+        </div>
+        <div className={styles.audio}>
+          <audio src='/public/music/Saliki feat. 104 - Smile.mp3' controls />
         </div>
       </div>
     </div>

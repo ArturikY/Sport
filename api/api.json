@@ -47,8 +47,8 @@ Workout
         "name": "name",
         "color": "color",
         "icon": "path_icon",
-        "initial_break": "initial_break",
-        "playlist": "playlist_id"
+        "initial_break": "initial_break", // default = 10
+        "playlist": "playlist_id" // optionally
     }
 },
 
@@ -85,7 +85,7 @@ Workout
     }
 },
 
-,
+
 {
     "description": "Возвращает занятые цвета",
     "url": "/workout/workout/get_not_free_workout_color",
@@ -132,7 +132,7 @@ Exercise
         "type": "type",
         "number": "number",
         "break_between_approaches": "break_between_approaches",
-        "break_after_exercise": "break_after_exercise",
+        "break_after_exercise": "break_after_exercise", // = break_between_approaches
         "workout": "workout"
     },
     "request": {

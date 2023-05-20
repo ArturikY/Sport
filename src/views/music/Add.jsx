@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import styles from './Add.module.scss'
+import { MusicService } from '../../services/axios/music.service'
 
 
 export const Add = ({ setListMusic, listPlaylists, setListPlaylists }) => {
@@ -9,9 +10,11 @@ export const Add = ({ setListMusic, listPlaylists, setListPlaylists }) => {
   const [autor, setAutor] = useState('')
   const [playlist, setPlaylist] = useState('None')
   const [file, setFile] = useState('')
+  const [id, setId] = useState(undefined)
 
   const createSongs = () => {
     const newSong = {
+      id: id,
       title: title,
       autor: autor,
       playlist: playlist,
@@ -46,12 +49,36 @@ export const Add = ({ setListMusic, listPlaylists, setListPlaylists }) => {
     }
 
     validation()
+
+    // const create = async () => {
+    //   const data = await MusicService.create({
+    //     title: newSong.title,
+    //     content: newSong.file,
+    //   })
+    //   setId(data)
+    // }
+
+    // const addToPlaylist = async () => {
+    //   const data = await MusicService.create({
+    //     music: [newSong.id]
+    //   })
+    // }
+
+    // const edit = async () => {
+    //   const data = await MusicService.edit({
+    //     title: song.title,
+    //     playlist: newSong.playlist
+    //   })
+    // }
+
+    // create()
+    // addToPlaylist()
+    // edit()
   }
   
   return (
     <div className={styles.form}>
       <form action="#" id="form" className="formBody">
-        <h2 className={styles.titleForm}>Add music</h2>
         <div className={styles.formItem}>
           <label htmlFor="formTitle" className={styles.formLabel}>Title:</label>
           <input type="text" id="formTitle" name="title" className={styles.formInput}

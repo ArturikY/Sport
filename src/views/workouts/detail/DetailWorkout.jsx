@@ -3,8 +3,9 @@ import React, { useState } from "react"
 import styles from './DetailWorkout.module.scss'
 import { EditWorkout } from "../edit/EditWorkout"
 import { useWorkoutsContext } from "../../../services/contexts/WorkoutsContext"
-import { deleteEl } from "../../../services/deleteEl"
 import { Go } from "../go/Go"
+import { deleteEl } from "../../../services/js/deleteEl"
+import { useGlobalContext } from "../../../services/contexts/GlobalContext"
 
 
 export const DetailWorkout = ({ 
@@ -16,7 +17,9 @@ export const DetailWorkout = ({
   const [openGo, setOpenGo] = useState(false)
  
   const {listWorkouts} = useWorkoutsContext()
+  const {listGlobalPlaylists} = useGlobalContext()
 
+  const [playlist, setPlaylist] = useState('None')
 
   return (
     <>
@@ -24,22 +27,40 @@ export const DetailWorkout = ({
       !openEdit && !openGo ? 
       <div className={styles.container}>
         <div className={styles.header}>
-          <div onClick={() => setOpenDetail(false)} className="icon-prev" />
+          <div onClick={() => setOpenDetail(false)} className={`icon-prev ${styles.icon}`} />
           <div onClick={() => setOpenEdit(true)} className={styles.edit}>
             <h3>Edit</h3>
-            <div className="icon-1" />
+            <div className={`icon-1 ${styles.icon}`} />
           </div>
         </div>
         <div className={styles.head}>
           <h2 className={styles.titleWorkout}>{detailWorkout.title}</h2>
-          <h2 onClick={() => {
+          <div onClick={() => {
             deleteEl(listWorkouts, detailWorkout)
             setOpenDetail(false)
-          }}>Delete</h2>
+          }} className={`icon-delete ${styles.icon}`} />
         </div>
         <div className={styles.startWorkout}>
+          <div className={styles.iconWorkout}>
+            {detailWorkout.icon}
+          </div>
           <button onClick={() => setOpenGo(true)} 
-          className={styles.btnStart}>Go</button>
+          className={styles.btnStart}>GO</button>
+        </div>
+        <div className={styles.playlists}>
+          <select defaultValue={`${playlist}`}
+            onChange={e => {
+              setPlaylist(e.target.value)
+              // Function for add playlist (reguest)
+            }}
+          >
+            <option value={'None'}>None</option>
+            {
+              listGlobalPlaylists.map((playlist, index) => (
+                <option value={`${playlist.title}`} key={index}>{playlist.title}</option>
+              ))
+            }
+          </select>
         </div>
         <div className={styles.contentWorkout}>
           {
