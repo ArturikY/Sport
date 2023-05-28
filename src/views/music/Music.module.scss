@@ -1,6 +1,22 @@
 .container {
-  width: 100%;
-  height: 93.3vh;
-  padding: 5px 15px;
-  background: #202020;
+	width: 100%;
+	height: 92vh;
+	padding: 5px 15px;
+	background: #202020;
+}
+
+.limition {
+	display: block;
+}
+
+@media (min-width: 426px) {
+	.container {
+		display: none;
+	}
+}
+
+@media (max-width: 425px) {
+	.limition {
+		display: none;
+	}
 }

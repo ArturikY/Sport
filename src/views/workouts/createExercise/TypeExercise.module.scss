@@ -1,42 +1,48 @@
 .container {
-  width: 100%;
-  height: 100vh;
-  padding: 5px 10px;
+	width: 100%;
+	height: 100vh;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 10px;
 
-  .back {
-    width: 24px;
-    height: 24px;
-    background-color: white;
+	.back {
+		font-size: 20px;
+		color: gray;
+		margin-top: 5px;
+		background: #1a1919;
+		display: inline-block;
+		border-radius: 5px;
+		padding: 0 5px;
 
-    div {
-      font-size: 20px;
-    }
-  }
+		div {
+			font-size: 20px;
+		}
+	}
 
-  .titlePage {
-    font-size: 18px;
-    font-weight: 400;
-    margin-right: 20%;
-    padding-top: 5px;
-  }
+	.titlePage {
+		font-size: 18px;
+		font-weight: 400;
+		margin-right: 20%;
+		padding-top: 5px;
+		color: #fff;
+	}
 }
 
 .type {
-  font-size: 16px;
-  font-weight: 400;
-  border-top: 1px solid #e9dcdc;
-  border-bottom: 1px solid #e9dcdc;
-  margin-top: 20px;
-  padding: 10px 10px;
+	font-size: 16px;
+	font-weight: 400;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	margin-top: 20px;
+	padding: 10px 15px;
+	color: gray;
 }
 
 .description {
-  padding: 10px 10px 30px 10px;
-  color: gray;
+	padding: 10px 15px 30px 15px;
+	color: gray;
 }

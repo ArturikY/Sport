@@ -1,38 +1,48 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Navigation.module.scss'
 
-
 export const Navigation = () => {
-
-
-  return (
-    <div className={styles.container}>
-      <Link to='/' className={styles.nav}>
-        <div>
-          <div className={styles.logo}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z"/>
-              <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-              <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-            </svg>
-          </div>
-          <div>Workouts</div>
-        </div>
-      </Link>
-      <Link to='/music' className={styles.nav}>
-        <div>
-          <div className={styles.logo}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-music" viewBox="0 0 16 16">
-              <path d="M11 6.64a1 1 0 0 0-1.243-.97l-1 .25A1 1 0 0 0 8 6.89v4.306A2.572 2.572 0 0 0 7 11c-.5 0-.974.134-1.338.377-.36.24-.662.628-.662 1.123s.301.883.662 1.123c.364.243.839.377 1.338.377.5 0 .974-.134 1.338-.377.36-.24.662-.628.662-1.123V8.89l2-.5V6.64z"/>
-              <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
-            </svg>
-          </div>
-          <div>Music</div>
-        </div>
-      </Link>
-      <Link to='/options' className={styles.nav}>
+	return (
+		<div className={styles.container}>
+			<Link to='/' className={styles.nav}>
+				<div>
+					<div className={styles.logo}>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='currentColor'
+							class='bi bi-journal-bookmark-fill'
+							viewBox='0 0 16 16'
+						>
+							<path
+								fill-rule='evenodd'
+								d='M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z'
+							/>
+							<path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z' />
+							<path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z' />
+						</svg>
+					</div>
+					<div>Workouts</div>
+				</div>
+			</Link>
+			<Link to='/music' className={styles.nav}>
+				<div>
+					<div className={styles.logo}>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='currentColor'
+							class='bi bi-file-earmark-music'
+							viewBox='0 0 16 16'
+						>
+							<path d='M11 6.64a1 1 0 0 0-1.243-.97l-1 .25A1 1 0 0 0 8 6.89v4.306A2.572 2.572 0 0 0 7 11c-.5 0-.974.134-1.338.377-.36.24-.662.628-.662 1.123s.301.883.662 1.123c.364.243.839.377 1.338.377.5 0 .974-.134 1.338-.377.36-.24.662-.628.662-1.123V8.89l2-.5V6.64z' />
+							<path d='M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z' />
+						</svg>
+					</div>
+					<div>Music</div>
+				</div>
+			</Link>
+			{/* <Link to='/options' className={styles.nav}>
         <div>
           <div className={styles.logo}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -42,7 +52,7 @@ export const Navigation = () => {
           </div>
           <div>Options</div>
         </div>
-      </Link>
-    </div>
-  )
+      </Link> */}
+		</div>
+	)
 }

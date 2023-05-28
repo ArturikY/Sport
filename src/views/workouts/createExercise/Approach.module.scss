@@ -1,57 +1,67 @@
 .approach {
-  border: 1px solid #e9dcdc;
-  border-radius: 15px;
-  margin-bottom: 10px;
+	border-radius: 15px;
+	margin-bottom: 10px;
+	background: #1a1919;
 }
 
 .headApproach {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #e9dcdc;
-  padding: 10px 15px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid gray;
+	padding: 5px 15px;
 
-  h3 {
-    font-size: 17px;
-    font-weight: 500;
-  }
+	h3 {
+		padding-top: 5px;
+		font-size: 17px;
+		font-weight: 500;
+		color: gray;
+	}
+
+	.icon {
+		font-size: 22px;
+		color: #ed3434;
+	}
 }
 
 .bodyApproach {
-  padding: 10px;
+	padding: 10px;
 
-  .parameter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0;
-  }
+	.parameter {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 5px 0;
+	}
 
-  .title {
-    display: flex;
-    color: gray;
+	.title {
+		display: flex;
+		color: gray;
 
-    .text {
-      margin-left: 10px;
-    }
-  }
+		.text {
+			margin-left: 10px;
+		}
+	}
 
-  .tuning {
-    display: flex;
-    justify-content: space-between;
-    width: 27%;
-    align-items: center;
-    border: 1px solid #e9dcdc;
-    border-radius: 15px;
+	.tuning {
+		display: flex;
+		justify-content: space-between;
+		width: 27%;
+		align-items: center;
+		border: 1px solid gray;
+		border-radius: 15px;
+		color: gray;
 
-    .minus, .plus {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: orange;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+		.minus,
+		.plus {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: gray;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+		}
+	}
 }

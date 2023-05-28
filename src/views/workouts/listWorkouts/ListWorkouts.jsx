@@ -18,9 +18,6 @@ export const ListWorkouts = ({
     <div className={styles.container}>
         <div onClick={() => setOpenCreate(true)} className={styles.addWorkout}>
           <h4>Add</h4>
-          <div className={styles.logo}>
-            <div className="icon-add" />
-          </div>
         </div>
       <h1>Workouts</h1>
       <div className={styles.listWorkout}>

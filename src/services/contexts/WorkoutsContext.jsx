@@ -1,30 +1,27 @@
-import React, { useContext, useState } from "react"
-
-import { ListWorkoutsData } from "../../views/ListWorkoutsData"
-
+import React, { useContext, useState } from 'react'
 
 const WorkoutsContext = React.createContext()
 
 export const useWorkoutsContext = () => {
-  return useContext(WorkoutsContext)
+	return useContext(WorkoutsContext)
 }
 
-
 export const WorkoutsProvider = ({ children }) => {
+	const [listWorkouts, setListWorkouts] = useState([])
 
-  const [listWorkouts, setListWorkouts] = useState(ListWorkoutsData)
+	const [token, setToken] = useState(undefined)
 
-  const [token, setToken] = useState(undefined)
+	const toggle = newWorkout => setListWorkouts(prev => [newWorkout, ...prev])
 
-  const toggle = (newWorkout) => setListWorkouts(prev => [newWorkout, ...prev])
-
-  return (
-    <WorkoutsContext.Provider value={{
-      listWorkouts: listWorkouts,
-      setListWorkouts: setListWorkouts,
-      toggle: toggle,
-      }}>
-      { children }
-    </WorkoutsContext.Provider>
-  )
+	return (
+		<WorkoutsContext.Provider
+			value={{
+				listWorkouts: listWorkouts,
+				setListWorkouts: setListWorkouts,
+				toggle: toggle,
+			}}
+		>
+			{children}
+		</WorkoutsContext.Provider>
+	)
 }

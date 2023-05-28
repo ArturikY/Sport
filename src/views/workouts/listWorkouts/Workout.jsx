@@ -21,7 +21,10 @@ export const Workout = ({ workout, setOpenDetail, setDetailWorkout }) => {
       </div>
       <div className={styles.icons}>
         <div className={styles.more}>
-          <div className="icon-next" />
+          <div onClick={() => {
+          setDetailWorkout(workout)
+          setOpenDetail(true)
+          }} className="icon-next" />
         </div>
       </div>     
     </div>
